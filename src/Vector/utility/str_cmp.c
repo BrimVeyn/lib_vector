@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bvan-pae <bryan.vanpaemel@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/23 12:55:50 by bvan-pae          #+#    #+#             */
-/*   Updated: 2024/05/23 15:17:07 by bvan-pae         ###   ########.fr       */
+/*   Created: 2024/05/24 17:21:18 by bvan-pae          #+#    #+#             */
+/*   Updated: 2024/05/24 17:21:19 by bvan-pae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/Vector/vector_define.h"
 
-bool str_cmp(void *s1, void *s2) {
-	return !strcmp((char *)s1, (char *)s2);
+int str_cmp(void *s1, void *s2) {
+	return strcmp((char *)s1, (char *)s2);
 }

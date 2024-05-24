@@ -6,7 +6,7 @@
 /*   By: bvan-pae <bryan.vanpaemel@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:33:12 by bvan-pae          #+#    #+#             */
-/*   Updated: 2024/05/23 16:38:48 by bvan-pae         ###   ########.fr       */
+/*   Updated: 2024/05/24 11:48:59 by bvan-pae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 typedef void *(*dup_func)(const void *);
 typedef void (*print_func)(size_t, const void *);
 typedef void (*add_func)(void **, void *);
-typedef bool (*cmp_func)(void *, void *);
+typedef int (*cmp_func)(void *, void *);
 
 #define INT_L(value)  (&(int){value})
 #define STR_L(str)  (&(char[]){str})
