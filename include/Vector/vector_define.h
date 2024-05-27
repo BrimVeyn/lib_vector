@@ -6,7 +6,7 @@
 /*   By: bvan-pae <bryan.vanpaemel@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:24:36 by bvan-pae          #+#    #+#             */
-/*   Updated: 2024/05/27 10:04:01 by bvan-pae         ###   ########.fr       */
+/*   Updated: 2024/05/27 16:51:35 by bvan-pae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int int_cmp(void *n1, void *n2);
 void	out_of_range( void );
 void	is_empty( void );
 void	not_found( void );
+void	wrong_type( void );
 
 
 /** ###########################################################
@@ -42,6 +43,7 @@ void	not_found( void );
 Iterator vector_binary_search(Vector *vect, void *value);
 Iterator vector_ternary_search(Vector *vect, void *value);
 Iterator vector_find(Vector *vect, void *value);
+Iterator vector_jump_search(Vector *vect, void *value);
 
 /** ###########################################################
 *						Sorting Functions					  #
@@ -72,3 +74,12 @@ void	vector_swap(Vector *vect, size_t i1, size_t i2);
 
 void	vector_clear(Vector *vect);
 void	vector_destruct(Vector *vect);
+
+int **vector_get_data_to_int(Vector *vect);
+char **vector_get_data_to_str(Vector *vect);
+void **vector_get_data(Vector *vect);
+
+void vector_map_int(Vector *vect, void *(func)(void *));
+void *join_front(void *s1);
+
+

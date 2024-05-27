@@ -6,7 +6,7 @@
 /*   By: bvan-pae <bryan.vanpaemel@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:23:41 by bvan-pae          #+#    #+#             */
-/*   Updated: 2024/05/27 10:04:30 by bvan-pae         ###   ########.fr       */
+/*   Updated: 2024/05/27 17:11:19 by bvan-pae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 
 int main(void) {
 	Vector vect = vector_construct(INT_TYPE);
-	int NB_OF_EL = 50000;
+
+	vector_push_back(&vect, INT_L(12));
+	int NB_OF_EL = 500;
 
 	for (int i = 0; i < NB_OF_EL; i++) {
 		int random_number = rand() % 2000;
@@ -25,25 +27,9 @@ int main(void) {
 	
 	vector_quick_sort(&vect);
 
-	long start = clock();
+	vector_destruct(&vect);
 
-	for (int i = 0; i < 25000; i += 2) {
-		Iterator __attribute__((unused)) it = vector_ternary_search(&vect, INT_L(i));
-	}
-
-	long end = clock() - start;
-
-	printf("Time to find 25k el using ternary = %zu\n", end);
-
-	start = clock();
-
-	for (int i = 0; i < 25000; i += 2) {
-		Iterator __attribute__((unused)) it = vector_binary_search(&vect, INT_L(i));
-	}
-
-	end = clock() - start;
-
-	printf("Time to find 25k el using binary = %zu\n", end);
+	// vector_destruct(&vect2);
 
 	// Vector vect2 = vector_construct(INT_TYPE);
 	//
@@ -70,7 +56,6 @@ int main(void) {
 	//
 	// 
 	// vector_destruct(&vect2);
-	vector_destruct(&vect);
 
 }
 

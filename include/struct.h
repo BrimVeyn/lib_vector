@@ -6,7 +6,7 @@
 /*   By: bvan-pae <bryan.vanpaemel@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:33:12 by bvan-pae          #+#    #+#             */
-/*   Updated: 2024/05/24 11:48:59 by bvan-pae         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:33:44 by bvan-pae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 #include <unistd.h>
 #include <time.h>
 #include <stdbool.h>
+#include <math.h>
 
 typedef void *(*dup_func)(const void *);
 typedef void (*print_func)(size_t, const void *);
@@ -63,11 +64,12 @@ typedef struct s_util_fun {
     print_func  print;
     add_func	add;
 	cmp_func	cmp;
+	char		type;
 
 } t_util_fun;
 
-#define INT_TYPE (struct s_util_fun){ int_dup, int_print, int_plus, int_cmp }
-#define STR_TYPE (struct s_util_fun){ str_dup, str_print, str_plus, str_cmp }
+#define INT_TYPE (struct s_util_fun){ int_dup, int_print, int_plus, int_cmp, 1 }
+#define STR_TYPE (struct s_util_fun){ str_dup, str_print, str_plus, str_cmp, 2 }
 
 typedef struct s_vector {
 	

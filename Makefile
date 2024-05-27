@@ -3,7 +3,8 @@ LIB_DIR         := lib
 BIN             := demo
 
 CC              := cc
-CFLAGS          = -Wall -Werror -Wextra -g3
+CFLAGS          := -Wall -Werror -Wextra -g3
+LDFLAGS			:= -lm
 SILENT_FLAGS 	:= -D SILENT=1
 INC_DIR         := include
 DEPS            := $(OBJ:.o=.d)
@@ -14,8 +15,11 @@ SRC             := $(wildcard src/Vector/*.c) \
 				   $(wildcard src/Vector/sorting/*.c) \
 				   $(wildcard src/Vector/searching/*.c) \
 				   $(wildcard src/Iterator/*.c) 
+
 OBJ             := $(SRC:src/%.c=objects/%.o)
-OBJDIR          := objects objects/Vector/errors objects/Vector/utility objects/Vector/sorting objects/Vector/searching objects/Iterator 
+
+OBJDIR          := objects objects/Vector/errors objects/Vector/utility \
+				   objects/Vector/sorting objects/Vector/searching objects/Iterator 
 
 DEF_COLOR       := \033[0;39m
 GRAY            := \033[0;90m
@@ -37,7 +41,7 @@ $(LIB_DIR)/$(LIB_NAME): $(LIB_DIR) $(OBJ)
 $(BIN): $(LIB_DIR)/$(LIB_NAME) objects/main.o
 	@echo "$(GREEN)Making binary: $(BIN)"
 	@printf "$(MAGENTA)"
-	@$(CC) objects/main.o $(LIB_DIR)/$(LIB_NAME) $(CFLAGS) -I $(INC_DIR) -o $(BIN)
+	@$(CC) objects/main.o $(LIB_DIR)/$(LIB_NAME) $(CFLAGS) $(LDFLAGS) -I $(INC_DIR) -o $(BIN)
 	@printf "Done !$(DEF_COLOR)\n"
 
 objects/%.o: src/%.c | $(OBJDIR)
