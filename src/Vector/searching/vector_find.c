@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   it_print.c                                         :+:      :+:    :+:   */
+/*   vector_find.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bvan-pae <bryan.vanpaemel@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/23 15:25:56 by bvan-pae          #+#    #+#             */
-/*   Updated: 2024/05/27 09:58:34 by bvan-pae         ###   ########.fr       */
+/*   Created: 2024/05/23 15:19:59 by bvan-pae          #+#    #+#             */
+/*   Updated: 2024/05/27 10:04:12 by bvan-pae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/Iterator/iterator_define.h"
-#include "../../include/Vector/vector_define.h"
+#include "../../../include/Vector/vector_define.h"
 
-void	it_print(Iterator *it) {
-	if (IT_EQ(*it, it_end(it->vector))) {
-		if (SILENT == 0)
-			return not_found();
-		else
-			return ;
-    }
-	it->vector->funcs.print(it->index, it->vector->data[it->index]);
+Iterator vector_find(Vector *vect, void *value) {
+	for (size_t i = 0; i < vect->size; i++) {
+		if (vect->funcs.cmp(vect->data[i], value) == 0)
+			return (Iterator) {vect, i};
+	}
+	return (Iterator) {vect, vect->size};
 }
+

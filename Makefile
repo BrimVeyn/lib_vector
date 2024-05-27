@@ -11,9 +11,11 @@ DEPS            := $(OBJ:.o=.d)
 SRC             := $(wildcard src/Vector/*.c) \
 				   $(wildcard src/Vector/errors/*.c) \
 				   $(wildcard src/Vector/utility/*.c) \
+				   $(wildcard src/Vector/sorting/*.c) \
+				   $(wildcard src/Vector/searching/*.c) \
 				   $(wildcard src/Iterator/*.c) 
 OBJ             := $(SRC:src/%.c=objects/%.o)
-OBJDIR          := objects objects/Vector/errors objects/Vector/utility objects/Iterator
+OBJDIR          := objects objects/Vector/errors objects/Vector/utility objects/Vector/sorting objects/Vector/searching objects/Iterator 
 
 DEF_COLOR       := \033[0;39m
 GRAY            := \033[0;90m

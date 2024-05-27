@@ -6,11 +6,11 @@
 /*   By: bvan-pae <bryan.vanpaemel@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:25:59 by bvan-pae          #+#    #+#             */
-/*   Updated: 2024/05/24 17:28:27 by bvan-pae         ###   ########.fr       */
+/*   Updated: 2024/05/27 09:04:07 by bvan-pae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/Vector/vector_define.h"
+#include "../../../include/Vector/vector_define.h"
 
 static size_t partition(Vector *vect, int low, int high) {
 	void *pivot = vect->data[high];
