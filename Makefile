@@ -3,7 +3,7 @@ LIB_DIR         := lib
 BIN             := demo
 
 CC              := cc
-CFLAGS          := -Wall -Werror -Wextra -g3
+CFLAGS			:= -Wall -Wextra -Werror -g3 -mtune=native -march=native -Ofast -Iinclude
 LDFLAGS			:= -lm
 SILENT_FLAGS 	:= -D SILENT=1
 INC_DIR         := include
@@ -31,7 +31,7 @@ MAGENTA         := \033[0;95m
 CYAN            := \033[0;96m
 WHITE           := \033[0;97m
 
-all: $(BIN)
+all: $(LIB_DIR)/$(LIB_NAME)
 
 $(LIB_DIR)/$(LIB_NAME): $(LIB_DIR) $(OBJ)
 	@echo "$(GREEN)Creating library: $(LIB_NAME)"
